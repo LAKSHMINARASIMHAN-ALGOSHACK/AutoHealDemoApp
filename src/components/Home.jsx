@@ -13,6 +13,14 @@ const Home = ({ addToCart, cartCount }) => {
       addedToCart: false
     },
     {
+      id: 2,
+      name: "Sample Product 2",
+      price: "$29.99",
+      icon: "📦📚",
+      category: "Boxxx",
+      addedToCart: false
+    },
+    {
       id: 4,
       name: "Sample Product 4",
       price: "$19.99",
