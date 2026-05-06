@@ -3,7 +3,7 @@ name: Deploy Webshop
 on:
   push:
     branches:
-      - main  # change if your default branch is different
+      - main  # change if needed
 
 permissions:
   contents: read
@@ -25,6 +25,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            npm-${{ runner.os }}-
+
       - name: Clean install
         run: |
           rm -rf node_modules dist
@@ -42,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist   # make sure your build outputs here
+          path: ./dist  # ensure your build outputs here
 
       - name: Deploy to GitHub Pages
         id: deployment
