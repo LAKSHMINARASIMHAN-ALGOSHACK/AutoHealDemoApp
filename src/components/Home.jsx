@@ -14,7 +14,7 @@ const Home = ({ addToCart, cartCount }) => {
     },
     {
       id: 2,
-      name: "Sample Product 2",
+      name: "Sample Product myself",
       price: "$29.99",
       icon: "📦📚",
       category: "Boxxx",
